@@ -36,4 +36,3 @@ mongoose.connect(dataBaseConnectionString, { useNewUrlParser: true, useUnifiedTo
             )
         }
     });
-    console.log('con cambio')
