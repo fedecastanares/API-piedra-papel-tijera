@@ -1,0 +1,27 @@
+{
+  "name": "api-proyecto-final",
+  "version": "1.0.0",
+  "description": "Esta es la API construida para el proyecto final de piedra papel o tijera. Instituto A+ Octubre 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "author": "Federico Castañares",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.10",
+    "morgan": "^1.10.0"
+  }
+}
