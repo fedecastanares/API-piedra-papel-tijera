@@ -20,6 +20,9 @@ app.use(morgan('dev'));
 const checkIfTheUserHasCredentials = require('./middlewares/checkIfTheUserHasCredentials');
 const checkIfTheUserIsAdmin = require('./middlewares/checkIfTheUserIsAdmin.js');
 
+app.get('/', (req, res) => {res.send('El servidor esta corriendo')});
+
+app.get('/players', require('./controllers/games/players'));
 
 app.post('/login', require('./controllers/users/login'));
 
