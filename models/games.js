@@ -1,12 +1,12 @@
 const { model, Schema } = require('mongoose')
 
-module.exports = model('books', new Schema({
+module.exports = model('games', new Schema({
     idHost: {
         type: String,
         required: true,
         trim: true
     },
-    idRivals: {
+    idRival: {
         type: String,
         required: true,
         trim: true
@@ -16,19 +16,17 @@ module.exports = model('books', new Schema({
         required: true,
         trim: true
     },
-    rivalsPlay: {
+    status: {
         type: String,
         required: true,
+        trim: true
+    },
+    rivalPlay: {
+        type: String,
         trim: true
     },
     idWin: {
         type: String,
-        required: true,
-        trim: true
-    },
-    idLoose: {
-        type: String,
-        required: true,
         trim: true
     },
 }, { timestamps: {date: 'date'} }))

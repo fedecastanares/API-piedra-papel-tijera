@@ -22,11 +22,13 @@ const checkIfTheUserIsAdmin = require('./middlewares/checkIfTheUserIsAdmin.js');
 
 app.get('/', (req, res) => {res.send('El servidor esta corriendo')});
 
-app.get('/players', checkIfTheUserHasCredentials, require('./controllers/games/players'));
-
 app.post('/login', require('./controllers/users/login'));
 
 app.post('/register', require('./controllers/users/register'));
+
+app.get('/players', checkIfTheUserHasCredentials, require('./controllers/games/players'));
+
+app.post('/games', checkIfTheUserHasCredentials, require('./controllers/games/games'));
 
 mongoose.connect(dataBaseConnectionString, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
     (error) => {
