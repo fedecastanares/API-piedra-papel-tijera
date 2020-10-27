@@ -2,6 +2,7 @@ const Joi = require('@hapi/joi')
 const gamesModel = require('../../models/games')
 
 module.exports = (request, response) => {
+
     const schema = Joi.object({
         idRival: Joi.string()
         .required(),

@@ -26,9 +26,11 @@ app.post('/login', require('./controllers/users/login'));
 
 app.post('/register', require('./controllers/users/register'));
 
-app.get('/players', checkIfTheUserHasCredentials, require('./controllers/games/players'));
+app.get('/players', checkIfTheUserHasCredentials, require('./controllers/games/getPlayers'));
 
-app.post('/games', checkIfTheUserHasCredentials, require('./controllers/games/games'));
+app.get('/games', checkIfTheUserHasCredentials, require('./controllers/games/getGames'));
+
+app.post('/games', checkIfTheUserHasCredentials, require('./controllers/games/newGame'));
 
 mongoose.connect(dataBaseConnectionString, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
     (error) => {
