@@ -13,6 +13,11 @@ module.exports = (request, response) => {
         status: Joi.string()
         .required(),
 
+        nameRival: Joi.string()
+        .required(),
+        
+        nameHost: Joi.string()
+        .required(),
 
     })
     const validationResult = schema.validate(request.body);
@@ -24,6 +29,8 @@ module.exports = (request, response) => {
             idRival: request.body.idRival,
             hostPlay: request.body.hostPlay,
             status: request.body.status,
+            nameRival: request.body.nameRival,
+            nameHost: request.body.nameHost
         }, (error, game) => {
             if (error) {
                 response.status(500).json({

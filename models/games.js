@@ -29,4 +29,12 @@ module.exports = model('games', new Schema({
         type: String,
         trim: true
     },
+    nameHost: {
+        type: String,
+        trim: true
+    },
+    nameRival: {
+        type: String,
+        trim: true
+    }
 }, { timestamps: {date: 'date'} }))
