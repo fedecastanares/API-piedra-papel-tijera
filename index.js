@@ -32,6 +32,8 @@ app.get('/games', checkIfTheUserHasCredentials, require('./controllers/games/get
 
 app.post('/games', checkIfTheUserHasCredentials, require('./controllers/games/newGame'));
 
+app.post('/games/:id', checkIfTheUserHasCredentials, require('./controllers/games/updateGame'));
+
 mongoose.connect(dataBaseConnectionString, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
     (error) => {
         if (error) {
