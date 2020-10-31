@@ -13,7 +13,7 @@ let dataBaseConnectionString = `mongodb+srv://${process.env.DB_USER}:${process.e
 
 const app = express();
 app.use(express.json({ extended: true}));
-app.use(cors());
+app.use(cors({origin: 'https://app-piedra-papel-tijera.herokuapp.com'}));
 app.use(helmet());
 app.use(morgan('dev'));
 
