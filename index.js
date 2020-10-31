@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 
 let dataBaseConnectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.xut0w.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 
+
 const app = express();
 app.use(express.json({ extended: true}));
 app.use(cors());
@@ -22,7 +23,7 @@ const checkIfTheUserIsAdmin = require('./middlewares/checkIfTheUserIsAdmin.js');
 
 app.get('/', (req, res) => {res.send('El servidor esta corriendo')});
 
-app.post('/login', require('./controllers/users/login'));
+app.post('/login', cors(), require('./controllers/users/login'));
 
 app.post('/register', require('./controllers/users/register'));
 
