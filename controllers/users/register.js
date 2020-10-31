@@ -44,7 +44,8 @@ module.exports = (request, response) => {
         })
     } else {
         response.status(400).json({
-            message: validationResult.error
+            message: validationResult.error,
+            body: request.body
         })
     }
 }

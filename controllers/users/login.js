@@ -24,10 +24,16 @@ module.exports = (request, response) => {
                         user: userWithoutPassword
                     })
                 } else {
-                    response.status(401).end()
+                    response.status(401).end().json({
+                        message : response.status(401).end(),
+                        body: request.body
+                    })
                 }
             } else {
-                response.status(401).end()
+                response.status(401).end().json({
+                    message : response.status(401).end(),
+                    body: request.body
+                })
             }
         }
     })
