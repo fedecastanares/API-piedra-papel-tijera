@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 let dataBaseConnectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.xut0w.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
-
+const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(express.json({ extended: true}));
@@ -41,7 +41,7 @@ mongoose.connect(dataBaseConnectionString, { useNewUrlParser: true, useUnifiedTo
             console.error('No fue posible conectarse a la base de datos', error)
         } else {
             // Comenzar a escuchar por conexiones
-            app.listen(process.env.PORT, () =>
+            app.listen(port, '0.0.0.0', () =>
                 console.log(`;) Servidor corriendo en el puerto: ${process.env.PORT}`)
             )
         }
