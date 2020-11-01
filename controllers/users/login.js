@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const userModel = require('../../models/user')
 
 module.exports = (request, response) => {
+    console.log(request.body)
     try {
         userModel.findOne({ 'email': request.body.email }, (error, user) => {
             if (error) {
