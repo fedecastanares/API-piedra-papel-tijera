@@ -27,6 +27,7 @@ module.exports = async(request, response) => {
             })
         } else {
             const idWin = whoWin(gameCheck.hostPlay, request.body.rivalPlay, gameCheck.idHost, gameCheck.idRival);
+            console.log(idWin)
 
             gamesModel.findOneAndUpdate({_id : request.params.id},{
                 status: request.body.status,

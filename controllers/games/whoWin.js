@@ -1,33 +1,28 @@
 module.exports = (hostPlay, rivalPlay, idHost, idRival) => {
-    if (hostPlay == rivalPlay) {
+    if (hostPlay === rivalPlay) {
         return "tie";
     } else {
-        if (hostPlay === "papel") {
-            if (rivalPlay === "piedra") {
-                return idHost;
-            } else {
-                if (rivalPlay === "tijera") {
-                    return idRival;
-                }
-            }
-            if (hostPlay === "tijera") {
+        switch(hostPlay){
+            case "papel":
                 if (rivalPlay === "piedra") {
-                    return idRival;
-                } else {
-                    if (rivalPlay === "papel") {
-                        return idHost;
-                    }
-                }
-            }
-            if (hostPlay === "piedra"){
-                if (rivalPlay === "tijera"){
                     return idHost
                 } else {
-                    if (rivalPlay === "papel") {
-                        return idRival
-                    }
+                    return idRival
                 }
+            case "tijera": 
+                if (rivalPlay === "papel") {
+                    return idHost
+                } else {
+                    return idRival
+                }
+            case "piedra": 
+                if (rivalPlay === "tijera") {
+                    return idHost
+                } else {
+                    return idRival
+                }
+            default:
+                return hostPlay
             }
         }
     }
-}
