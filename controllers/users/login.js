@@ -7,7 +7,7 @@ module.exports = async (request, response) => {
     const { email, password } = request.body;
 
      try {
-         let user = await userModel.findOne({ email });
+         let user = await userModel.findOne({ email});
          if(!user) {
              return response.status(400).json({msg: 'El usuario no existe'});
          }
