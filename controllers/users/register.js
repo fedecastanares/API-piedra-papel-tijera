@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const Joi = require('@hapi/joi')
 const userModel = require('../../models/user')
 
@@ -36,10 +37,19 @@ module.exports = (request, response) => {
                 const userWithoutPassword = user.toObject()
 
                 delete userWithoutPassword.password
+                delete userWithoutPassword.email
+                delete userWithoutPassword.role
+                delete userWithoutPassword._id
+                delete userWithoutPassword.__v
 
+                userWithoutPassword.token = jwt.sign({
+                    id: user._id,
+                    role: user.role
+                    }, process.env.JWT_KEY, { expiresIn: '2h' })
+                
                 response.json({
-                   user: userWithoutPassword
-                })
+                    user: userWithoutPassword
+                 })    
             }
         })
     } else {

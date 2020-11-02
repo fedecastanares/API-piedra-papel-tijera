@@ -13,7 +13,8 @@ const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(express.json({ extended: true}));
-app.use(cors({origin: 'https://app-piedra-papel-tijera.herokuapp.com'}));
+// =app.use(cors({origin: 'https://app-piedra-papel-tijera.herokuapp.com'}));
+app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 
